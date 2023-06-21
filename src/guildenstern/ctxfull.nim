@@ -43,11 +43,7 @@ export strtabs
 import httpcore
 export httpcore
 
-when not defined(nimdoc):
-  import guildenstern
-  export guildenstern
-else:
-  import guildenserver, ctxhttp
+import guildenserver, ctxhttp
 
 
 type

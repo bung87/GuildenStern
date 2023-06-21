@@ -27,11 +27,7 @@
 
 from posix import recv, SocketHandle
 
-when not defined(nimdoc):
-  import guildenstern
-  export guildenstern
-else:
-  import guildenserver, ctxhttp
+import guildenserver, ctxhttp
 
 type PortDatum = object
   port: uint16
