@@ -32,7 +32,7 @@ proc handleAccept(gs: ptr GuildenServer, fd: posix.SocketHandle, data: ptr Socke
 
   gs[].log(DEBUG, "socket connected: " & $fd)
   var tv = (RcvTimeOut,0)
-  if setsockopt(fd, cint(posix.SOL_SOCKET), cint(RcvTimeOut), addr(tv), SockLen(sizeof(tv))) < 0'i32:
+  if setsockopt(fd, cint(posix.SOL_SOCKET), SO_RCVTIMEO, addr(tv), SockLen(sizeof(tv))) < 0'i32:
     gs.selector.unregister(fd.int)
     gs[].log(ERROR, "setting timeout failed: " & $fd)
 
